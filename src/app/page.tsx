@@ -5,7 +5,6 @@ import { mockDisputes, mockInvoices } from './data/mockDisputes';
 import { Dispute, Invoice } from './types';
 import DisputeList from './components/DisputeList';
 import DisputeDetail from './components/DisputeDetail';
-import Header from './components/Header';
 import Stats from './components/Stats';
 
 export default function Home() {
@@ -39,17 +38,23 @@ export default function Home() {
   const resolvedDisputes = disputes.filter(d => d.status === 'resolved');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <Header />
-      
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-8">
+      <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Resolution Engine
-          </h1>
-          <p className="text-gray-600">
-            Autonomous dispute resolution powered by AI
-          </p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                Resolution Engine
+              </h1>
+              <p className="text-gray-600">
+                Autonomous dispute resolution powered by AI
+              </p>
+            </div>
+            <div className="flex items-center space-x-2 px-4 py-2 bg-[#00FF94] bg-opacity-10 border border-[#00FF94] rounded-lg">
+              <div className="w-2 h-2 bg-[#00FF94] rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-gray-900">AI Active</span>
+            </div>
+          </div>
         </div>
 
         <Stats 
@@ -103,7 +108,7 @@ export default function Home() {
             )}
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
